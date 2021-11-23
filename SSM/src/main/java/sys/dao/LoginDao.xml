@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="sys.dao.LoginDao">
+    <resultMap id="loginInfo" type="sys.domain.login.LoginInfo">
+        <id column="s_id" property="account"></id>
+        <result column="s_password" property="password"></result>
+    </resultMap>
+    <select id="selectUserInfo" resultMap="loginInfo">
+        select s_id,s_password from user_info where s_id = #{account};
+    </select>
+    <insert id="addUser">
+        insert into user_info (s_id,s_password) values ('','');
+    </insert>
+
+</mapper>
