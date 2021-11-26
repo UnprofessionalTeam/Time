@@ -14,9 +14,7 @@ public class LoginServiceImpl implements LoginService {
     private LoginDao loginDao;
     @Override
     public boolean certificate(LoginInfo info) {
-        System.out.println(info.getPassword()+info.getAccount());
         LoginInfo localInfo = loginDao.selectUserInfo(info);
-
         if(localInfo==null){return false;}
         return info.getPassword().equals(localInfo.getPassword());
     }

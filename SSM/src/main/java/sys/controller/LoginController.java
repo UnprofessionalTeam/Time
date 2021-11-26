@@ -5,6 +5,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import sys.domain.login.LoginInfo;
 import sys.domain.login.ReturnInfo;
+import sys.exception.InfoException;
 import sys.service.LoginService;
 import sys.service.impl.LoginServiceImpl;
 
@@ -17,7 +18,7 @@ public class LoginController {
     private LoginService service;
     @RequestMapping("/in")
     @ResponseBody
-    public ReturnInfo login(LoginInfo info){
+    public ReturnInfo login(LoginInfo info)  {
         boolean result = service.certificate(info);
         ReturnInfo returnInfo = new ReturnInfo();
         if (result){

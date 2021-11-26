@@ -7,11 +7,24 @@
 <!--mvc的配置文件-->
     <!--组件扫描器-->
     <context:component-scan base-package="sys.controller"></context:component-scan>
+    <context:component-scan base-package="sys.handler"></context:component-scan>
     <!--注解驱动作用是响应ajax和处理静态资源冲突问题-->
     <mvc:annotation-driven></mvc:annotation-driven>
+    <!--处理静态资源-->
     <mvc:resources mapping="**" location="/static/"></mvc:resources>
+    <!--拦截器-->
+    <mvc:interceptors>
+        <mvc:interceptor>
+            <mvc:mapping path="/**"/>
+            <bean class="sys.handler.GlobalInterceptor"></bean>
+        </mvc:interceptor>
+        <mvc:interceptor>
+            <mvc:mapping path="/user/**"/>
+            <bean class="sys.handler.InfoInterceptor"></bean>
+        </mvc:interceptor>
+    </mvc:interceptors>
     <bean id="resolve" class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <property name="prefix" value="/WEB-INF/view"></property>
+        <property name="prefix" value="/WEB-INF/view/"></property>
         <property name="suffix" value=""></property>
     </bean>
 </beans>
