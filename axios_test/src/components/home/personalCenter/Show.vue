@@ -56,9 +56,7 @@
       update(data){        
         this.getInfo(data)
       },
-      getText(info){
-      return '7h'
-      },
+     
     },    
     mounted(){
       var chartDom = document.getElementById('container');

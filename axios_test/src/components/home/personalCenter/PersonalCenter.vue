@@ -1,9 +1,15 @@
 <template>
-<div>
+<div class="base">
   <div class="box">
-    <Show></Show>    
+    <InfoList></InfoList>
   </div>
-  
+  <div class="box">
+    <h2>时长情况</h2>
+    <Show></Show>    
+  </div>  
+  <div class="box">    
+    <Board></Board>
+  </div>
 </div>
   
 </template>
@@ -11,8 +17,10 @@
 <script>
 import Show from '../personalCenter/Show.vue'
 import axios from 'axios'
+import Board from '../personalCenter/Board.vue'
+import InfoList from '../personalCenter/InfoList.vue'
 export default {
-  components:{Show},
+  components:{Show,Board,InfoList},
   data() {
     return {
 
@@ -46,16 +54,27 @@ export default {
       this.$bus.$emit('updateShow',info)
 
     }).catch(err=>{
-
+      console.log(err)
     })  
   }
 }
 </script>
 
 <style scoped>
-  .box {
-  
+  .box {    
+    color:rgb(110, 110, 110);
+    box-shadow: 2px 3px 10px 0px rgba(0, 0, 0, 0.2);    
+    background-color: #fff;
+    overflow: hidden;
+    margin: 15px;
+    padding: 15px;
+    border-radius: 15px;
     width: 400px;
-    height: 400px;
+    height: 600px;
   }
+  .base {
+    display: flex;
+    justify-content: center;
+  }
+
 </style>

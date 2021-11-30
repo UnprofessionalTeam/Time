@@ -75,6 +75,9 @@ export default {
       }).catch(err=>{
         console.log(err)
       })
+    },
+    keyLogin(value){      
+      if(value.keyCode==13){this.login()}
     }
   },
   mounted(){
@@ -89,7 +92,11 @@ export default {
     if(isAuto){//如果设置了自动登录
       if(!gdutPassword&&gdutAccount){this.autoLogin = false;this.$notify({message:'请重新登陆'})}
       else{this.login()}
-    }        
+    } 
+    window.addEventListener('keydown',this.keyLogin);
+  },
+  destroyed(){
+    window.removeEventListener('keydown',this.keyDown,false);
   }
 }
 </script>
@@ -108,5 +115,8 @@ export default {
     display: inline-block;
     text-align: center;
     width: 20%;
+  }
+  #login_button_area{
+    padding: 5px;
   }
 </style>

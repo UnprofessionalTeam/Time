@@ -1,5 +1,5 @@
 <template>
-  <div id="login_box">
+  <div id="login_box" >
     <transition-group name="el-zoom-in-top">
     <div ref="login_view" v-show="loginState" :key=1>
       <h2 style="marginLeft:10px;marginRight:10px;display:inline-block">登 陆</h2>
@@ -29,7 +29,8 @@ export default {
   data(){
     return {
       loginState:true,
-      registerState:false
+      registerState:false,
+      
     }
   },
   methods:{

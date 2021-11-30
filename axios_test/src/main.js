@@ -24,6 +24,7 @@ echarts.use([
   LabelLayout
 ]);
 
+
 new Vue({
   render: h => h(App),
   store,
